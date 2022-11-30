@@ -1,0 +1,589 @@
+/* TRÌNH TỪ LÀM VIỆC 
+1. Từ ngoài vào trong
+2. Từ trên xuống dưới
+3. Từ tổng quan đến chi tiết
+*/
+
+/* TRÌNH TỰ CSS 
+1. Vị trí
+2. Kích thước
+3. Màu sắc
+4. Kiểu dáng
+*/
+
+/* Reset CSS */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* font-size apply cho tất cả thẻ chứa text*/
+html {
+  /* 
+- font-size: 10px, không nên để font-size bằng px vì nó không flexible, user, mỗi browser có default font-size khác nhau
+  */
+  font-size: 62.5%;
+  /* 
+- Browser sẽ tìm kiếm các font trong "" trước, không có sẽ tự động chọn bất kỳ font thuộc sans-serif 
+- Nên chọn font dòng sans-serif cho menu website vì nó gọn gàng, không quá trang trọng như chữ có chân serif
+*/
+  font-family: "Lato", "Verdana", sans-serif;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+}
+
+/* 
+Common
+*/
+
+.row {
+  margin-left: -0.8rem;
+  margin-right: -0.8rem;
+}
+
+/* 
+tạo 1 div clear both phía sau row để khắc phục lỗi khi dùng float
+*/
+.row::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.col {
+  float: left;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+.col-1 {
+  width: 100%;
+}
+
+.col-2 {
+  width: 50%;
+}
+
+.col-3 {
+  width: calc(100% / 3);
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.mt-8 {
+  margin-top: 0.8rem !important;
+}
+
+.mt-16 {
+  margin-top: 1.6rem !important;
+}
+
+.mb-32 {
+  margin-bottom: 3.2rem !important;
+}
+
+/* 
+Main
+*/
+
+#main {
+  font-size: 1.5rem;
+}
+
+/* 
+1. Vị trí trên cùng, scroll xuống sẽ dính trên cùng và đè lên các ele khác. 
+2. w=100vw; h=46.5px
+3. Màu #000
+4. ... 
+*/
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4.65rem;
+  background-color: #000;
+  z-index: 1;
+}
+
+#header #nav {
+  display: inline-block;
+  /*
+  - Chỉnh font-size = 0 để sửa lỗi có khoảng cách extra margin giữa các thẻ li
+  */
+  font-size: 0;
+}
+
+/* 
+Thẻ li có display: list-items có tính chất block, nên đổi thành inline block để có thể vừa chung 1 hàng vừa có thể chỉnh được w,h 
+*/
+
+#header #nav li {
+  display: inline-block;
+}
+
+#nav .nav-arrow-down {
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+/* 
+1. Vị trí trong header
+2. font-size: 15px
+3. color: #fff
+4. Không gạch chân, viết in hoa
+*/
+#header #nav li a {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+
+  /* 
+Trong thực tế nên để thuộc tính này để đồng nhất kiểu chữ cho menu items, cho dù admin viết kiểu gì cũng ra 
+*/
+  text-transform: uppercase;
+  padding: 1.2rem 2.4rem;
+  line-height: 2.25rem;
+  font-weight: 400;
+}
+
+/* 
+1. Vị trí như cữ
+2. Kích thước không thay đổi
+3. Màu sắc background: #ccc, màu chữ #fff
+4. Không thay đổi kiểu dáng
+*/
+#header #nav > li:hover > a {
+  color: #000;
+  background-color: #ccc;
+}
+
+#header #nav li:hover .navsub {
+  display: block;
+}
+
+#header #nav .navsub {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+}
+
+#header #nav .navsub li {
+  display: block;
+  background-color: #fff;
+  min-width: 16rem;
+}
+
+#header #nav .navsub li:hover {
+  background-color: #ccc;
+}
+
+#header #nav .navsub li a {
+  color: #000;
+  text-transform: capitalize;
+}
+
+#header .toggle-menu-btn,
+#header .search-btn {
+  float: right;
+  color: #fff;
+  line-height: 4.65rem;
+  padding: 0 2.35rem;
+  font-weight: 900;
+}
+
+#header .search-btn:hover {
+  cursor: pointer;
+  background-color: #f44336;
+}
+
+.toggle-menu-btn {
+  display: none;
+}
+
+#header .toggle-menu-btn:hover {
+  background-color: #ccc;
+}
+
+#header .toggle-menu-btn:hover i {
+  color: #000;
+}
+
+#slider {
+  position: relative;
+  margin-top: 4.65rem;
+  background: url(../img/sliders/chicago.jpg) top center / cover no-repeat;
+  padding-top: 50%;
+}
+
+#slider .img-cap {
+  position: absolute;
+  bottom: 3.2rem;
+  left: 0;
+  right: 0;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 0 1rem black;
+}
+
+#slider .img-cap h3 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin-bottom: 2.4rem;
+}
+
+#slider .img-cap p {
+  font-weight: 700;
+}
+
+#content {
+}
+
+.section {
+  max-width: 80rem;
+  padding: 6.4rem 1.6rem;
+  margin: 0 auto 4.8rem;
+}
+
+.section .section-heading {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+}
+
+.section .section-sub-heading {
+  margin: 1.5rem 0 1.5rem 0;
+  text-align: center;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+#about-text {
+  text-align: justify;
+}
+
+#content #member-list {
+  margin-top: 4.8rem;
+}
+
+#content .member-item {
+  text-align: center;
+}
+
+#content .member-name {
+  margin-bottom: 1.5rem;
+}
+
+#content .member-avatar {
+  width: 15.2rem;
+  border-radius: 0.4rem;
+}
+
+#content #member-list .clear {
+  margin-bottom: 4.8rem;
+}
+
+#tour {
+  background-color: #000;
+}
+
+#ticket-list {
+  margin-top: 4rem;
+  background-color: #fff;
+  list-style-type: none;
+}
+
+#ticket-list li {
+  padding: 0.8rem 1.6rem;
+  border-bottom: 0.1rem solid #ddd;
+  color: #757575;
+}
+
+#ticket-list .sold-out {
+  display: inline-block;
+  padding: 0 0.8rem;
+  margin-left: 1.6rem;
+  background-color: #f44336;
+  color: #fff;
+}
+
+#ticket-list .qty {
+  float: right;
+  background-color: #000;
+  color: #fff;
+  width: 2.4rem;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.place-list {
+  padding: 3.2rem 0;
+  margin-bottom: 3.2rem;
+}
+
+.place-item {
+  padding: 0 0.8rem;
+}
+
+.place-img {
+  display: block;
+  width: 100%;
+}
+
+.place-img:hover {
+  opacity: 0.6;
+}
+
+.place-body {
+  display: inline-block;
+  background: #fff;
+  padding: 0 1.6rem;
+}
+
+.place-name {
+  margin-top: 1.5rem;
+}
+
+.place-date {
+  margin: 1.5rem 0;
+  color: #757575;
+}
+
+.place-desc {
+  margin-bottom: 1.5rem;
+}
+
+.place-btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  margin-bottom: 1.5rem;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  appearance: none;
+  -webkit-appearance:none;
+}
+
+.place-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* 
+Contact Section
+*/
+.contact-section {
+  margin-top: -4.8rem;
+}
+
+.contact-body {
+  margin-top: 4.8rem;
+}
+
+.contact-info {
+  font-size: 1.8rem;
+}
+
+.contact-info i[class*="ti-"] {
+  display: inline-block;
+  width: 4rem;
+}
+
+.contact-body .contact-info a {
+  padding: 1.2rem;
+  color: #000eee;
+  opacity: 0.8;
+}
+
+.contact-body .contact-info a:hover {
+  opacity: 1;
+}
+
+.contact-form {
+  font-size: 1.5rem;
+}
+
+.form-control {
+  width: 100%;
+  border: 0.1rem solid #ccc;
+  padding: 1.2rem;
+}
+
+.contact-submit-btn {
+  float: right;
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  border: 0.1rem solid black;
+  padding: 1rem 1.6rem;
+}
+
+.contact-submit-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* Map Section */
+.map-section img {
+  width: 100%;
+  filter: grayscale(50%);
+}
+
+#footer {
+  padding: 6.4rem 1.6rem;
+  text-align: center;
+}
+
+.social-list .social-link {
+  text-decoration: none;
+  padding: 0.2rem;
+}
+
+.social-list .social-link i[class*="ti-"] {
+  font-size: 2rem;
+  color: rgb(0, 0, 0, 0.6);
+}
+
+.social-list .social-link i[class*="ti-"]:hover {
+  opacity: 0.8;
+}
+
+#footer .copyright {
+  color: #757575;
+}
+
+#footer .copyright a {
+  color: #757575;
+}
+
+#footer .copyright a:hover {
+  opacity: 0.8;
+}
+
+/* Modal Section */
+.modal {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  /* display: flex; */
+  display: none;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-container {
+  position: relative;
+  background: #fff;
+  width: 90rem;
+  /* max-width: calc(90rem - 3.2rem); */
+  padding: 1.6rem;
+  animation: modalFadeIn ease 0.3s;
+}
+
+.modal-header {
+  background: #009688;
+  color: #fff;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.2rem 1.6rem;
+  letter-spacing: 0.4rem;
+  margin: -1.6rem -1.6rem 1.6rem;
+}
+
+#modal-close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  font-size: 1.6rem;
+  padding: 1.6rem;
+}
+
+#modal-close-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.modal-body {
+}
+
+.modal-label {
+  display: block;
+}
+
+#ticket-qty,
+#ticket-email {
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0 2.4rem;
+}
+
+#modal-buy-ticket {
+  display: block;
+  width: 100%;
+  border: none;
+  background: #009688;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #fff;
+  /* font-weight: bold; */
+  padding: 16px 0;
+}
+
+#modal-buy-ticket:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.modal-footer {
+  position: relative;
+  margin: 3.2rem 0 1.6rem;
+  text-align: right;
+}
+
+.modal-footer #modal-close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #f44336;
+  color: #fff;
+  padding: 0.8rem 1.4rem;
+}
+
+.modal-footer #modal-close:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-16rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

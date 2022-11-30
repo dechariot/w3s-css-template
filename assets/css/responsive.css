@@ -1,0 +1,162 @@
+/* PC */
+@media (min-width: 1024px) {
+  #header #nav .navsub {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Tablet & Mobile */
+@media (max-width: 1023px) {
+  /* 
+  Common
+  */
+  .ms-full-width,
+  .ms-col-1 {
+    width: 100%;
+  }
+
+  /* 
+  Main
+  */
+  .place-btn,
+  .contact-submit-btn {
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+    width: 100%;
+  }
+
+  .contact-info {
+    line-height: 1.8;
+  }
+
+  .form-control {
+    width: 100%;
+    border: 0.1rem solid #ccc;
+    padding: 1.6rem;
+  }
+
+  .modal.js-modal.open {
+    padding: 0 1.6rem;
+  }
+
+  .social-list .social-link i[class*="ti-"] {
+    font-size: 2.4rem;
+    padding: 0 0.8rem;
+  }
+  #footer .copyright a {
+    color: #757575;
+    line-height: 3rem;
+    display: inline-block;
+    padding: 1rem 0;
+  }
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+}
+
+/* Mobile */
+@media (max-width: 739px) {
+  /* Common */
+
+  .s-mt-32 {
+    margin-top: 3.2rem !important;
+  }
+
+  .s-mt-16 {
+    margin-top: 1.6rem !important;
+  }
+
+  .s-mt-8 {
+    margin-top: 0.8rem !important;
+  }
+
+  .s-full-width,
+  .s-col-1 {
+    width: 100% !important;
+  }
+
+  /* Main */
+
+  #header {
+    overflow: hidden;
+  }
+
+  #header #nav {
+    display: block;
+  }
+
+  #header #nav li,
+  #header #nav li a {
+    display: block;
+  }
+
+  #header #nav li:first-child {
+    display: inline-block;
+  }
+
+  #header .search-btn {
+    display: none;
+  }
+
+  .toggle-menu-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+  }
+
+  .toggle-menu-btn:hover {
+    cursor: pointer;
+  }
+
+  #header #nav li:first-child {
+    display: block;
+  }
+
+  #header #nav .navsub {
+    position: initial;
+  }
+
+  #header #nav .navsub li {
+    background: #333;
+  }
+
+  #header #nav .navsub li a {
+    color: #fff;
+  }
+
+  #header #nav .navsub li a:hover {
+    color: #000;
+  }
+
+  #member-list .member-item {
+    margin-bottom: 1.6rem;
+    width: 100%;
+  }
+
+  #content #member-list .member-name {
+    margin-top: 0.8rem;
+  }
+
+  #content #member-list .member-avatar {
+    width: 60%;
+  }
+
+  .place-item {
+    padding: 0px 0.8rem 16px;
+    width: 100%;
+  }
+
+  .place-body {
+    width: 100%;
+  }
+
+  .contact-info i[class*="ti-"] {
+    display: inline-block;
+    width: 2.4rem;
+  }
+}
