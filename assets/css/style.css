@@ -402,7 +402,7 @@ Contact Section
 }
 
 .contact-body .contact-info a {
-  padding: 1.2rem;
+  padding: 1.2rem 1.2rem 1.2rem 0;
   color: #000eee;
   opacity: 0.8;
 }
