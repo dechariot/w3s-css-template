@@ -1,5 +1,5 @@
 # W3S CSS Template
-W3S CSS Template is the clone website of W3School.  
+W3S CSS Template is the responsive clone website of W3School.  
 This project is build for practicing HTML & CSS and followed by Front End Course of Mr.Son Dang.  
 Website: https://dechariot.github.io/w3s-css-template  
 Reference: https://www.w3schools.com/w3css/tryw3css_templates_band.htm  
