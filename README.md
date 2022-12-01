@@ -5,8 +5,8 @@ Website: https://dechariot.github.io/w3s-css-template
 Reference: https://www.w3schools.com/w3css/tryw3css_templates_band.htm  
 Free Course: https://fullstack.edu.vn/learning/html-css
 
-## Keyword
-- responsive, pseudo element, pseudo class
+## Keyword  
+responsive, pseudo element, pseudo class
 
 ## Timeline
 
